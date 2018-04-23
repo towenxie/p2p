@@ -1,0 +1,24 @@
+2016-09-17 20:02:25.637 [Thread-1] [INFO ] [e.x.p.d.b.f.f.FTPDispatcherApp: writeBreakpoint] - ---writeBreakpoint---
+2016-09-17 20:41:22.091 [main] [ERROR] [e.x.p.d.b.s.c.NodeClient: queryFileUrls] - failed to transport log test
+java.lang.NullPointerException
+	at org.apache.thrift.TServiceClient.sendBase(TServiceClient.java:62) ~[libthrift-0.9.2.jar:0.9.2]
+	at edu.xmh.p2p.data.contract.service.node.TNodeService$Client.send_queryFileUrls(TNodeService.java:85) ~[classes/:?]
+	at edu.xmh.p2p.data.contract.service.node.TNodeService$Client.queryFileUrls(TNodeService.java:77) ~[classes/:?]
+	at edu.xmh.p2p.data.business.service.client.NodeClient.queryFileUrls(NodeClient.java:25) [classes/:?]
+	at edu.xmh.p2p.data.business.service.ClientManager.getDataByFileName(ClientManager.java:16) [classes/:?]
+	at edu.xmh.p2p.data.client.service.ClientService.downLoadFile(ClientService.java:54) [classes/:?]
+	at edu.xmh.p2p.data.client.service.ClientService.startUp(ClientService.java:39) [classes/:?]
+	at edu.xmh.p2p.data.client.ClientApp.main(ClientApp.java:27) [classes/:?]
+2016-09-17 20:41:43.231 [Thread-1] [INFO ] [e.x.p.d.b.f.f.FTPDispatcherApp: run] - 读取断点
+2016-09-17 20:41:43.234 [Thread-1] [INFO ] [e.x.p.d.b.f.f.FTPDispatcherApp: readBreakpoint] - d:\GF1_WFV3_E117.0_N38.9_20160324_L1A0001485797.tar.gz.info---patchNum---0
+2016-09-17 20:41:43.235 [Thread-1] [INFO ] [e.x.p.d.b.f.f.FTPDispatcherApp: writeBreakpoint] - ---writeBreakpoint---
+2016-09-17 20:42:05.459 [main] [ERROR] [e.x.p.d.b.s.c.NodeClient: queryFileUrls] - failed to transport log test
+java.lang.NullPointerException
+	at org.apache.thrift.TServiceClient.sendBase(TServiceClient.java:62) ~[libthrift-0.9.2.jar:0.9.2]
+	at edu.xmh.p2p.data.contract.service.node.TNodeService$Client.send_queryFileUrls(TNodeService.java:85) ~[classes/:?]
+	at edu.xmh.p2p.data.contract.service.node.TNodeService$Client.queryFileUrls(TNodeService.java:77) ~[classes/:?]
+	at edu.xmh.p2p.data.business.service.client.NodeClient.queryFileUrls(NodeClient.java:25) [classes/:?]
+	at edu.xmh.p2p.data.business.service.ClientManager.getDataByFileName(ClientManager.java:16) [classes/:?]
+	at edu.xmh.p2p.data.client.service.ClientService.downLoadFile(ClientService.java:54) [classes/:?]
+	at edu.xmh.p2p.data.client.service.ClientService.startUp(ClientService.java:39) [classes/:?]
+	at edu.xmh.p2p.data.client.ClientApp.main(ClientApp.java:27) [classes/:?]

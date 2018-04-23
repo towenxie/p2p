@@ -1,0 +1,89 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# --------------------------------common definations-------------------------------- #
+# return if the hash table include the string property and the value is not empty
+def has_key?(hs,property)
+  hs.include?(property) && hs[property].class == String && hs[property] !~ /^\s*$/
+end
+
+# ensure that there is a line contains the giving url and ip, 
+# and comment all lines that only matched the url
+def hosts_line!(url,ip)
+  File.open("#{ENV['SystemRoot']}/System32/drivers/etc/hosts",'r+') do |hosts|
+    lines,found,edited = hosts.to_a,false,false
+    lines.each do |line|
+      if line=~/^[^#{'#'}].*#{url}/
+        found |= line=~/#{ip}/ || (edited |= line.insert(0,'#')) && false
+      end
+    end
+    lines << "\n#{ip}    #{url}" unless found
+    hosts.seek(0) && hosts << lines.join unless found && !edited
+  end
+end
+
+# --------------------------------prepare parameters-------------------------------- #
+require 'yaml'
+#load configs
+conf = nil
+File.open(File.dirname(__FILE__)+'/config.yaml') do |file|
+	conf = YAML.load(file)
+end
+
+#current node name
+nodeName = conf['node_name']
+osName = conf['os_name']
+
+#load ips
+unless has_key? conf,'IP'
+  iplist = nil
+	File.open(File.dirname(__FILE__)+'/iplist.yaml') do |file|
+		iplist = YAML.load(file)
+	end
+    
+        if has_key? iplist,nodeName
+            conf['IP'] = iplist[nodeName]
+            puts "machine IP will be assigned to #{conf['IP']}."
+        end
+end
+
+
+Vagrant.configure("2") do |config|
+  config.vm.box = nodeName
+  config.vm.box_url = "#{conf['box_url']}"
+  config.vm.box_check_update = false
+  
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.manage_guest = true
+
+  # vm server #
+  config.vm.define "default", primary: true do |default|
+
+      default.vm.hostname=nodeName
+      default.vm.network "public_network", :ip=> conf['IP']
+      default.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+	  #default.vm.synced_folder "./vagrant_home/", "/home/vagrant", type: "virtualbox"
+      
+      # workaround first time up, the user towen is created in provision script
+      uid_towen = 501
+      gid_vagrant = 500
+      default.vm.synced_folder "./towen_home/", "/home/towen", type: "virtualbox", owner: uid_towen, group: gid_vagrant
+	  default.vm.synced_folder "./shared/", "/shared", type: "virtualbox", owner: uid_towen, group: gid_vagrant
+      
+      if has_key? conf, 'software_directory'
+            default.vm.synced_folder conf['software_directory'], "/software", type: "virtualbox"    
+      end
+      
+      default.vm.provider "virtualbox" do |vb|
+      #   vb.gui = true
+         vb.memory = conf['default.memory']
+         vb.cpus   = conf['default.cpu']
+       end
+	   if osName == "centos"
+			default.vm.provision "shell", path: "provision/setup_centos.sh"
+	   elseif osName == "ubuntu"
+			default.vm.provision "shell", path: "provision/setupDeployment.sh"
+	   end
+    end
+end

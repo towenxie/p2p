@@ -1,0 +1,6 @@
+2016-09-19 01:23:38.877 [main] [INFO ] [e.x.p.s.t.ThriftServer: startUp] - Starting server on port: 8888
+2016-09-19 01:26:02.511 [main] [INFO ] [e.x.p.s.t.ThriftServer: startUp] - Starting server on port: 8888
+2016-09-19 01:34:18.978 [main] [INFO ] [e.x.p.s.t.ThriftServer: startUp] - Starting server on port: 8888
+2016-09-19 01:56:13.452 [main] [INFO ] [e.x.p.s.t.ThriftServer: startUp] - Starting server on port: 8090
+2016-09-19 01:56:18.806 [pool-2-thread-1] [INFO ] [e.x.p.s.t.TNodeServiceImpl: getDownLoadFile] - Count ftpUrls: 1
+2016-09-19 01:56:18.806 [pool-2-thread-1] [INFO ] [e.x.p.s.t.TNodeServiceImpl: queryFileUrls] - queryFileUrls fileName: fileName, results size: 1

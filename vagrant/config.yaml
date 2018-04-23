@@ -1,0 +1,26 @@
+##################################
+# IP and host
+##################################
+# Host name and also used to lookup the ip in iplist.yaml
+node_name:                          towen
+
+# OS name
+os_name:                          ubuntu
+
+# Mount to /opt/software. Required files in this directory
+# - apache-tomcat-7.0.61.tar.gz
+# - jdk-8u45-linux-x64.gz
+# - apache-ant-1.8.3-bin.tar.gz
+# - apache-tomcat-5.5.20_josso-1.5.tar.gz
+software_directory:                  D:\Software
+
+##################################
+# Box
+##################################
+# Box file from vagrant
+# https://atlas.hashicorp.com/centos/boxes/6
+#box_url:                            file:///d:/Myworks/linux_init/box/official-centos6-v1607-1-virtualbox.box
+box_url:                            file:///d:/Myworks/linux_init/box/ubuntu-server-12042-x64-vbox4210-nocm.box
+# default machine is for deploy MV
+default.memory:                        1000
+default.cpu:                           1

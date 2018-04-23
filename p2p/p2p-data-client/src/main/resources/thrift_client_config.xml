@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<servers>
+    <server name="p2p_client_1" host="192.168.31.111" port="8888" selectorthreads="1" workerthreads="1" >
+        <service name="p2p_client_1">
+            <processor contractclass="edu.xmh.p2p.data.contract.service.node.TNodeService" handlerclass="edu.xmh.p2p.data.business.service.server.TNodeServiceImpl" />
+        </service>
+    </server>
+</servers>

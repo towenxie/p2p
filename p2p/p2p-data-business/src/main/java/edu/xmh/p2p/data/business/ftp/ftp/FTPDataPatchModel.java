@@ -1,0 +1,71 @@
+package edu.xmh.p2p.data.business.ftp.ftp;
+
+/**
+ * 下载过程中数据块的记录
+ * 
+ * @author Xiongminghao
+ *
+ */
+public class FTPDataPatchModel {
+
+	private String siteIp = "";
+	private int threadNumber; // 线程数
+	private int number; // 块的编号
+	private long startByte;
+	private long endByte;
+	private int status = 0; // 0 未开始, 1 正在下载, 2 下载结束
+
+	public String getSiteIp() {
+		return siteIp;
+	}
+
+	public void setSiteIp(String siteIp) {
+		this.siteIp = siteIp;
+	}
+
+	public long getStartByte() {
+		return startByte;
+	}
+
+	public void setStartByte(long startByte) {
+		this.startByte = startByte;
+	}
+
+	public long getEndByte() {
+		return endByte;
+	}
+
+	public void setEndByte(long endByte) {
+		this.endByte = endByte;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public int getThreadNumber() {
+		return threadNumber;
+	}
+
+	public void setThreadNumber(int threadNumber) {
+		this.threadNumber = threadNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "DataPatchModel [siteIp=" + siteIp + ", threadNumber=" + threadNumber + ", number=" + number
+				+ ", startByte=" + startByte + ", endByte=" + endByte + ", status=" + status + "]";
+	}
+}

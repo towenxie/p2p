@@ -1,0 +1,18 @@
+2016-09-17 19:55:06.808 [Thread-1] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startThreadedSelectorServer] - Starting thrift server at port: 8888
+2016-09-17 19:55:09.474 [main] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startServer] - Thrift server started at port: 8888
+2016-09-17 20:04:57.751 [Thread-1] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startThreadedSelectorServer] - Starting thrift server at port: 8888
+2016-09-17 20:04:57.812 [main] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startServer] - Thrift server started at port: 8888
+2016-09-17 20:05:01.873 [Thread-1] [ERROR] [e.x.p.d.p.t.s.ThriftServer: startThreadedSelectorServer] - Could not create ServerSocket on address 0.0.0.0/0.0.0.0:8888.
+org.apache.thrift.transport.TTransportException: Could not create ServerSocket on address 0.0.0.0/0.0.0.0:8888.
+	at org.apache.thrift.transport.TNonblockingServerSocket.<init>(TNonblockingServerSocket.java:96) ~[libthrift-0.9.2.jar:0.9.2]
+	at org.apache.thrift.transport.TNonblockingServerSocket.<init>(TNonblockingServerSocket.java:71) ~[libthrift-0.9.2.jar:0.9.2]
+	at org.apache.thrift.transport.TNonblockingServerSocket.<init>(TNonblockingServerSocket.java:64) ~[libthrift-0.9.2.jar:0.9.2]
+	at edu.xmh.p2p.data.platform.thrift.server.ThriftServer.startThreadedSelectorServer(ThriftServer.java:166) [classes/:?]
+	at edu.xmh.p2p.data.platform.thrift.server.ThriftServer.access$000(ThriftServer.java:31) [classes/:?]
+	at edu.xmh.p2p.data.platform.thrift.server.ThriftServer$1.run(ThriftServer.java:62) [classes/:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_101]
+2016-09-17 20:05:01.919 [Thread-1] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startThreadedSelectorServer] - Starting thrift server at port: 8888
+2016-09-17 20:13:40.011 [Thread-1] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startThreadedSelectorServer] - Starting thrift server at port: 8888
+2016-09-17 20:13:40.082 [main] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startServer] - Thrift server started at port: 8888
+2016-09-17 21:34:42.366 [Thread-1] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startThreadedSelectorServer] - Starting thrift server at port: 8888
+2016-09-17 21:34:42.429 [main] [INFO ] [e.x.p.d.p.t.s.ThriftServer: startServer] - Thrift server started at port: 8888
